@@ -8,7 +8,8 @@ class Otomoto3(scrapy.Spider):
     start_urls = ['https://www.otomoto.pl/osobowe/']
 
     def parse(self, response):
-
+        import pdb
+        pdb.set_trace()
         # create array of auctions links
         auctions = response.xpath('//h2[@class="offer-title"]/a/@href').extract()
 
@@ -28,7 +29,8 @@ class Otomoto3(scrapy.Spider):
             yield response.follow(li, callback=self.parse)
 
     def parse_auction(self, response):
-
+        import pdb
+        pdb.set_trace()
         item = response.meta['item']
 
         items = response.xpath('//*[@class="offer-params__item"]')
